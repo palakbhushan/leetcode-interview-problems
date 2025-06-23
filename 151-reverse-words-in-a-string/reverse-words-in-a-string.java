@@ -1,33 +1,46 @@
 class Solution {
     public String reverseWords(String s) {
-        Stack<String> stk = new Stack<>(); 
-        char[] arr = s.toCharArray();
+        String[] arr = s.split("\\s+");
+        StringBuilder str = new StringBuilder();
 
-        StringBuilder temp = new StringBuilder();
-        for(int i=0;i<arr.length; i++){
-            if(arr[i] == ' '){
-                if(temp.length()>0){
-                    stk.push(temp.toString());
-                    temp= new StringBuilder();
-                }
-            } else{
-                temp.append(arr[i]);
+        for(int i= arr.length - 1; i>=0; i--){
+            str.append(arr[i]);
+            if(i!=0){
+                str.append(" ");
             }
+        }
+
+        return str.toString().trim();
+
+
+
+
+
+        // StringBuilder temp = new StringBuilder();
+        // for(int i=0;i<arr.length; i++){
+        //     if(arr[i] == ' '){
+        //         if(temp.length()>0){
+        //             stk.push(temp.toString());
+        //             temp= new StringBuilder();
+        //         }
+        //     } else{
+        //         temp.append(arr[i]);
+        //     }
             
-        }
+        // }
 
-        if(temp.length() > 0){
-            stk.push(temp.toString());
-        }
+        // if(temp.length() > 0){
+        //     stk.push(temp.toString());
+        // }
 
-        StringBuilder result = new StringBuilder();
-        while(!stk.isEmpty()){
-            result.append(stk.pop());
-            if(!stk.isEmpty()){
-                result.append(" ");
-            }
-        }
+        // StringBuilder result = new StringBuilder();
+        // while(!stk.isEmpty()){
+        //     result.append(stk.pop());
+        //     if(!stk.isEmpty()){
+        //         result.append(" ");
+        //     }
+        // }
 
-        return result.toString();
+        // return result.toString();
     }
 }
