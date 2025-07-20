@@ -9,6 +9,7 @@ class Solution {
             }
 
             if (nums[mid] == nums[mid + 1]) {
+                //single element idhar exists krta hai
                 low = mid + 2;
             } else {
                 high = mid;
